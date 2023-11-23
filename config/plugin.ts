@@ -1,10 +1,4 @@
 export default ({ env }) => ({
-  localazy: {
-    enabled: true,
-  },
-  "record-locking": {
-    enabled: true,
-  },
     upload: {
       config: {
         provider: 'cloudinary',
