@@ -20,6 +20,8 @@
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-router-dom": "5.3.4",
+    "strapi-plugin-publisher": "^1.5.4",
+    "strapi-plugin-transformer": "^3.1.2",
     "styled-components": "5.3.3"
   },
   "author": {
@@ -32,5 +34,6 @@
     "node": ">=18.0.0 <=20.x.x",
     "npm": ">=6.0.0"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "repository": "git@github.com:70-7h3-m00n/new-api.mipo.msk.ru.git"
 }
