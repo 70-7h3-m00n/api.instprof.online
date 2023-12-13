@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_description_program_description_programs",
+  "info": {
+    "displayName": "descriptionProgram"
+  },
+  "options": {},
+  "attributes": {
+    "header": {
+      "type": "string",
+      "required": true
+    },
+    "subHeader": {
+      "type": "text",
+      "required": true
+    },
+    "tittle": {
+      "type": "text",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_courses_component_training_programs",
+  "info": {
+    "displayName": "trainingProgram",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "pro": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "title": {
+      "type": "text",
+      "required": true
+    },
+    "list": {
+      "displayName": "list",
+      "type": "component",
+      "repeatable": true,
+      "component": "courses-component.list",
+      "required": true
+    }
+  }
+}

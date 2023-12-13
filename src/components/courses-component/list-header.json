@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_list_header_list_headers",
+  "info": {
+    "displayName": "listHeader"
+  },
+  "options": {},
+  "attributes": {
+    "item": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

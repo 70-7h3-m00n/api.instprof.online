@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_items_item_headers",
+  "info": {
+    "displayName": "ItemHeader",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "header": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "string",
+      "required": true
+    },
+    "listVacancies": {
+      "displayName": "Headers",
+      "type": "component",
+      "repeatable": true,
+      "component": "items.headers",
+      "required": true
+    },
+    "listSalary": {
+      "type": "component",
+      "repeatable": true,
+      "component": "items.headers",
+      "required": true
+    }
+  }
+}

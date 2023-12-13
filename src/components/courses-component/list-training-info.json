@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_list_training_info_list_training_infos",
+  "info": {
+    "displayName": "listTrainingInfo"
+  },
+  "options": {},
+  "attributes": {
+    "trainingPeriod": {
+      "type": "string",
+      "required": true
+    },
+    "formOfStudy": {
+      "type": "string",
+      "required": true
+    },
+    "nextEnrollment": {
+      "type": "string",
+      "required": true
+    },
+    "numberHours": {
+      "type": "string",
+      "required": true
+    },
+    "certificateCompletion": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_who_is_program_who_is_programs",
+  "info": {
+    "displayName": "whoIsProgram"
+  },
+  "options": {},
+  "attributes": {
+    "icon": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

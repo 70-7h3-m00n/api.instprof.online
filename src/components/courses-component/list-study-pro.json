@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_courses_component_list_study_pros",
+  "info": {
+    "displayName": "listStudyPro"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

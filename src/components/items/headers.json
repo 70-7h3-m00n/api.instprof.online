@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_items_headers",
+  "info": {
+    "displayName": "Headers"
+  },
+  "options": {},
+  "attributes": {
+    "header": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
