@@ -1,5 +1,5 @@
 {
-  "name": "new-api.mipo.msk.ru",
+  "name": "api.instprof.online",
   "private": true,
   "version": "0.1.0",
   "description": "A Strapi application",
@@ -35,5 +35,5 @@
     "npm": ">=6.0.0"
   },
   "license": "MIT",
-  "repository": "git@github.com:70-7h3-m00n/new-api.mipo.msk.ru.git"
+  "repository": "git@github.com:70-7h3-m00n/api.instprof.online.git"
 }
