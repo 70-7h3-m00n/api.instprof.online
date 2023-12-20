@@ -1,17 +1,20 @@
 {
   "collectionName": "components_who_is_program_list_studies",
   "info": {
-    "displayName": "listStudy"
+    "displayName": "listStudy",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "title": {
       "type": "string",
-      "required": true
+      "required": true,
+      "maxLength": 72
     },
     "description": {
       "type": "text",
-      "required": true
+      "required": true,
+      "maxLength": 110
     }
   }
 }

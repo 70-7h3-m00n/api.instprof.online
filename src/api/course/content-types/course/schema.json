@@ -41,14 +41,14 @@
       "type": "component",
       "repeatable": true,
       "component": "courses-component.list-header",
-      "required": true
+      "required": false
     },
     "listTrainingInfo": {
       "displayName": "listTrainingInfo",
       "type": "component",
       "repeatable": false,
       "component": "courses-component.list-training-info",
-      "required": true
+      "required": false
     },
     "descriptionProgram": {
       "displayName": "descriptionProgram",
@@ -60,7 +60,7 @@
       "type": "component",
       "repeatable": false,
       "component": "items.item-header",
-      "required": true
+      "required": false
     },
     "whoIsProgram": {
       "displayName": "whoIsProgram",
@@ -73,36 +73,36 @@
       "type": "component",
       "repeatable": true,
       "component": "courses-component.list-study",
-      "required": true
+      "required": false
     },
     "listStudyPro": {
       "displayName": "listStudyPro",
       "type": "component",
       "repeatable": true,
       "component": "courses-component.list-study-pro",
-      "required": true
+      "required": false
     },
     "watchProgram": {
       "type": "string",
-      "required": true
+      "required": false
     },
     "businessCase": {
       "type": "string",
-      "required": true
+      "required": false
     },
     "trainingProgram": {
       "displayName": "trainingProgram",
       "type": "component",
       "repeatable": true,
       "component": "courses-component.training-program",
-      "required": true
+      "required": false
     },
     "listTeachers": {
       "displayName": "listTeachers",
       "type": "component",
       "repeatable": true,
       "component": "courses-component.list-teachers",
-      "required": true
+      "required": false
     },
     "profession": {
       "type": "string",
@@ -116,20 +116,20 @@
       "type": "component",
       "repeatable": true,
       "component": "courses-component.list-study-pro",
-      "required": true
+      "required": false
     },
     "listCompany": {
       "displayName": "ListImage",
       "type": "component",
       "repeatable": true,
       "component": "items.list-image",
-      "required": true
+      "required": false
     },
     "listProgram": {
       "type": "component",
       "repeatable": true,
       "component": "courses-component.list-study-pro",
-      "required": true
+      "required": false
     },
     "trainingMonths": {
       "type": "string",

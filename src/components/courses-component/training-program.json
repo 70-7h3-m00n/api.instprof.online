@@ -13,14 +13,15 @@
     },
     "title": {
       "type": "text",
-      "required": true
+      "required": true,
+      "maxLength": 110
     },
     "list": {
       "displayName": "list",
       "type": "component",
       "repeatable": true,
       "component": "courses-component.list",
-      "required": true
+      "required": false
     }
   }
 }

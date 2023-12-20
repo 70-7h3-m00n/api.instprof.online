@@ -29,9 +29,13 @@ export interface CoursesComponentListHeader extends Schema.Component {
   collectionName: 'components_list_header_list_headers';
   info: {
     displayName: 'listHeader';
+    description: '';
   };
   attributes: {
-    item: Attribute.Text & Attribute.Required;
+    item: Attribute.Text &
+      Attribute.SetMinMaxLength<{
+        maxLength: 110;
+      }>;
   };
 }
 
@@ -39,9 +43,14 @@ export interface CoursesComponentListStudyPro extends Schema.Component {
   collectionName: 'components_courses_component_list_study_pros';
   info: {
     displayName: 'listStudyPro';
+    description: '';
   };
   attributes: {
-    title: Attribute.Text & Attribute.Required;
+    title: Attribute.Text &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 72;
+      }>;
   };
 }
 
@@ -49,10 +58,19 @@ export interface CoursesComponentListStudy extends Schema.Component {
   collectionName: 'components_who_is_program_list_studies';
   info: {
     displayName: 'listStudy';
+    description: '';
   };
   attributes: {
-    title: Attribute.String & Attribute.Required;
-    description: Attribute.Text & Attribute.Required;
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 72;
+      }>;
+    description: Attribute.Text &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 110;
+      }>;
   };
 }
 
@@ -99,9 +117,14 @@ export interface CoursesComponentList extends Schema.Component {
   collectionName: 'components_courses_component_lists';
   info: {
     displayName: 'list';
+    description: '';
   };
   attributes: {
-    item: Attribute.String & Attribute.Required;
+    item: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 110;
+      }>;
   };
 }
 
@@ -113,9 +136,12 @@ export interface CoursesComponentTrainingProgram extends Schema.Component {
   };
   attributes: {
     pro: Attribute.Boolean & Attribute.Required & Attribute.DefaultTo<false>;
-    title: Attribute.Text & Attribute.Required;
-    list: Attribute.Component<'courses-component.list', true> &
-      Attribute.Required;
+    title: Attribute.Text &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 110;
+      }>;
+    list: Attribute.Component<'courses-component.list', true>;
   };
 }
 
@@ -163,9 +189,8 @@ export interface ItemsItemHeader extends Schema.Component {
   attributes: {
     header: Attribute.String & Attribute.Required;
     description: Attribute.String & Attribute.Required;
-    listVacancies: Attribute.Component<'items.headers', true> &
-      Attribute.Required;
-    listSalary: Attribute.Component<'items.headers', true> & Attribute.Required;
+    listVacancies: Attribute.Component<'items.headers', true>;
+    listSalary: Attribute.Component<'items.headers', true>;
   };
 }
 

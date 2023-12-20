@@ -1,13 +1,15 @@
 {
   "collectionName": "components_courses_component_list_study_pros",
   "info": {
-    "displayName": "listStudyPro"
+    "displayName": "listStudyPro",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "title": {
       "type": "text",
-      "required": true
+      "required": true,
+      "maxLength": 72
     }
   }
 }

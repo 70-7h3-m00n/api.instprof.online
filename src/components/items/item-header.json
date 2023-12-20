@@ -19,13 +19,13 @@
       "type": "component",
       "repeatable": true,
       "component": "items.headers",
-      "required": true
+      "required": false
     },
     "listSalary": {
       "type": "component",
       "repeatable": true,
       "component": "items.headers",
-      "required": true
+      "required": false
     }
   }
 }

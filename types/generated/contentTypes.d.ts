@@ -379,41 +379,28 @@ export interface ApiCourseCourse extends Schema.CollectionType {
     description: Attribute.Text & Attribute.Required;
     imageCourse: Attribute.Media & Attribute.Required;
     slug: Attribute.UID & Attribute.Required;
-    listHeader: Attribute.Component<'courses-component.list-header', true> &
-      Attribute.Required;
-    listTrainingInfo: Attribute.Component<'courses-component.list-training-info'> &
-      Attribute.Required;
+    listHeader: Attribute.Component<'courses-component.list-header', true>;
+    listTrainingInfo: Attribute.Component<'courses-component.list-training-info'>;
     descriptionProgram: Attribute.Component<'courses-component.description-program'>;
-    vacanciesProfession: Attribute.Component<'items.item-header'> &
-      Attribute.Required;
+    vacanciesProfession: Attribute.Component<'items.item-header'>;
     whoIsProgram: Attribute.Component<'courses-component.who-is-program', true>;
-    listStudy: Attribute.Component<'courses-component.list-study', true> &
-      Attribute.Required;
-    listStudyPro: Attribute.Component<
-      'courses-component.list-study-pro',
-      true
-    > &
-      Attribute.Required;
-    watchProgram: Attribute.String & Attribute.Required;
-    businessCase: Attribute.String & Attribute.Required;
+    listStudy: Attribute.Component<'courses-component.list-study', true>;
+    listStudyPro: Attribute.Component<'courses-component.list-study-pro', true>;
+    watchProgram: Attribute.String;
+    businessCase: Attribute.String;
     trainingProgram: Attribute.Component<
       'courses-component.training-program',
       true
-    > &
-      Attribute.Required;
-    listTeachers: Attribute.Component<'courses-component.list-teachers', true> &
-      Attribute.Required;
+    >;
+    listTeachers: Attribute.Component<'courses-component.list-teachers', true>;
     profession: Attribute.String & Attribute.Required;
     salary: Attribute.String & Attribute.Required;
     listProfessionalSkills: Attribute.Component<
       'courses-component.list-study-pro',
       true
-    > &
-      Attribute.Required;
-    listCompany: Attribute.Component<'items.list-image', true> &
-      Attribute.Required;
-    listProgram: Attribute.Component<'courses-component.list-study-pro', true> &
-      Attribute.Required;
+    >;
+    listCompany: Attribute.Component<'items.list-image', true>;
+    listProgram: Attribute.Component<'courses-component.list-study-pro', true>;
     trainingMonths: Attribute.String & Attribute.Required;
     enrollment: Attribute.String & Attribute.Required;
     formOfStudy: Attribute.String & Attribute.Required;

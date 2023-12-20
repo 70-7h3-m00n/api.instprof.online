@@ -1,13 +1,15 @@
 {
   "collectionName": "components_courses_component_lists",
   "info": {
-    "displayName": "list"
+    "displayName": "list",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "item": {
       "type": "string",
-      "required": true
+      "required": true,
+      "maxLength": 110
     }
   }
 }
