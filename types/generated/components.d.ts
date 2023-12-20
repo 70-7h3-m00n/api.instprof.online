@@ -49,7 +49,7 @@ export interface CoursesComponentListStudyPro extends Schema.Component {
     title: Attribute.Text &
       Attribute.Required &
       Attribute.SetMinMaxLength<{
-        maxLength: 72;
+        maxLength: 135;
       }>;
   };
 }

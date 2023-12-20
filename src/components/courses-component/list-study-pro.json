@@ -9,7 +9,7 @@
     "title": {
       "type": "text",
       "required": true,
-      "maxLength": 72
+      "maxLength": 135
     }
   }
 }
