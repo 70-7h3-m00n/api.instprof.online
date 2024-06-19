@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "type_programs",
+  "info": {
+    "singularName": "type-program",
+    "pluralName": "type-programs",
+    "displayName": "TypeProgram",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "program_courses": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::program-course.program-course",
+      "inversedBy": "type_programs"
+    }
+  }
+}

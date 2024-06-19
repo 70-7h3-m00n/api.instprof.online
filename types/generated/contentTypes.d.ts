@@ -835,13 +835,14 @@ export interface ApiFacultyFaculty extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    xui: Attribute.String;
-    teachers: Attribute.Relation<
+    title: Attribute.String;
+    image: Attribute.Media;
+    program_courses: Attribute.Relation<
       'api::faculty.faculty',
       'oneToMany',
-      'api::teacher.teacher'
+      'api::program-course.program-course'
     >;
-    xuiiii: Attribute.String;
+    icon: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -853,6 +854,51 @@ export interface ApiFacultyFaculty extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::faculty.faculty',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiProgramCourseProgramCourse extends Schema.CollectionType {
+  collectionName: 'program_courses';
+  info: {
+    singularName: 'program-course';
+    pluralName: 'program-courses';
+    displayName: 'ProgramCourse';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    faculty: Attribute.Relation<
+      'api::program-course.program-course',
+      'manyToOne',
+      'api::faculty.faculty'
+    >;
+    type_programs: Attribute.Relation<
+      'api::program-course.program-course',
+      'manyToMany',
+      'api::type-program.type-program'
+    >;
+    hoursTraining: Attribute.String;
+    monthsTraining: Attribute.String;
+    curatorSupport: Attribute.Boolean & Attribute.DefaultTo<true>;
+    remotely: Attribute.Boolean & Attribute.DefaultTo<true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::program-course.program-course',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::program-course.program-course',
       'oneToOne',
       'admin::user'
     > &
@@ -906,13 +952,13 @@ export interface ApiTeacherTeacher extends Schema.CollectionType {
   };
   attributes: {
     name: Attribute.String;
-    title: Attribute.Text;
+    title: Attribute.Text &
+      Attribute.Private &
+      Attribute.SetMinMaxLength<{
+        minLength: 3;
+        maxLength: 121;
+      }>;
     image: Attribute.Media;
-    faculty: Attribute.Relation<
-      'api::teacher.teacher',
-      'manyToOne',
-      'api::faculty.faculty'
-    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -924,6 +970,42 @@ export interface ApiTeacherTeacher extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::teacher.teacher',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiTypeProgramTypeProgram extends Schema.CollectionType {
+  collectionName: 'type_programs';
+  info: {
+    singularName: 'type-program';
+    pluralName: 'type-programs';
+    displayName: 'TypeProgram';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    program_courses: Attribute.Relation<
+      'api::type-program.type-program',
+      'manyToMany',
+      'api::program-course.program-course'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::type-program.type-program',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::type-program.type-program',
       'oneToOne',
       'admin::user'
     > &
@@ -951,8 +1033,10 @@ declare module '@strapi/types' {
       'plugin::publisher.action': PluginPublisherAction;
       'api::course.course': ApiCourseCourse;
       'api::faculty.faculty': ApiFacultyFaculty;
+      'api::program-course.program-course': ApiProgramCourseProgramCourse;
       'api::student-comment.student-comment': ApiStudentCommentStudentComment;
       'api::teacher.teacher': ApiTeacherTeacher;
+      'api::type-program.type-program': ApiTypeProgramTypeProgram;
     }
   }
 }

@@ -1,0 +1,45 @@
+{
+  "kind": "collectionType",
+  "collectionName": "program_courses",
+  "info": {
+    "singularName": "program-course",
+    "pluralName": "program-courses",
+    "displayName": "ProgramCourse",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "faculty": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::faculty.faculty",
+      "inversedBy": "program_courses"
+    },
+    "type_programs": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::type-program.type-program",
+      "mappedBy": "program_courses"
+    },
+    "hoursTraining": {
+      "type": "string"
+    },
+    "monthsTraining": {
+      "type": "string"
+    },
+    "curatorSupport": {
+      "type": "boolean",
+      "default": true
+    },
+    "remotely": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}

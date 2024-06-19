@@ -16,7 +16,10 @@
       "type": "string"
     },
     "title": {
-      "type": "text"
+      "type": "text",
+      "minLength": 3,
+      "maxLength": 121,
+      "private": true
     },
     "image": {
       "type": "media",
@@ -25,12 +28,6 @@
       "allowedTypes": [
         "images"
       ]
-    },
-    "faculty": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::faculty.faculty",
-      "inversedBy": "teachers"
     }
   }
 }
