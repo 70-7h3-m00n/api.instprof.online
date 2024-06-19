@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "student_comments",
+  "info": {
+    "singularName": "student-comment",
+    "pluralName": "student-comments",
+    "displayName": "StudentComment",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "title": {
+      "type": "text"
+    },
+    "image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": true
+    }
+  }
+}

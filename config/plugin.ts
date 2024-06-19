@@ -1,7 +1,5 @@
 export default ({ env }) => ({
-  "record-locking": {
-    enabled: true,
-  },
+  'color-picker': true,
   "drag-drop-content-types": {
     enabled: true,
   },
@@ -34,6 +32,5 @@ export default ({ env }) => ({
   publisher: {
     enabled: true,
     config: {},
-  },
-  // ...
+  }
 });

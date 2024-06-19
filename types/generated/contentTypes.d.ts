@@ -362,76 +362,6 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
-export interface ApiCourseCourse extends Schema.CollectionType {
-  collectionName: 'courses';
-  info: {
-    singularName: 'course';
-    pluralName: 'courses';
-    displayName: 'Course';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    category: Attribute.String & Attribute.Required;
-    nameCourse: Attribute.String & Attribute.Required;
-    description: Attribute.Text & Attribute.Required;
-    imageCourse: Attribute.Media & Attribute.Required;
-    slug: Attribute.UID & Attribute.Required;
-    listHeader: Attribute.Component<'courses-component.list-header', true>;
-    listTrainingInfo: Attribute.Component<'courses-component.list-training-info'>;
-    descriptionProgram: Attribute.Component<'courses-component.description-program'>;
-    vacanciesProfession: Attribute.Component<'items.item-header'>;
-    whoIsProgram: Attribute.Component<'courses-component.who-is-program', true>;
-    listStudy: Attribute.Component<'courses-component.list-study', true>;
-    listStudyPro: Attribute.Component<'courses-component.list-study-pro', true>;
-    watchProgram: Attribute.String;
-    businessCase: Attribute.String;
-    trainingProgram: Attribute.Component<
-      'courses-component.training-program',
-      true
-    >;
-    listTeachers: Attribute.Component<'courses-component.list-teachers', true>;
-    profession: Attribute.String & Attribute.Required;
-    salary: Attribute.String & Attribute.Required;
-    listProfessionalSkills: Attribute.Component<
-      'courses-component.list-study-pro',
-      true
-    >;
-    listCompany: Attribute.Component<'items.list-image', true>;
-    listProgram: Attribute.Component<'courses-component.list-study-pro', true>;
-    trainingMonths: Attribute.String & Attribute.Required;
-    enrollment: Attribute.String & Attribute.Required;
-    formOfStudy: Attribute.String & Attribute.Required;
-    installmentPlan: Attribute.Integer & Attribute.Required;
-    oneTimePayment: Attribute.Integer & Attribute.Required;
-    priseSmart: Attribute.Integer & Attribute.Required;
-    prisePro: Attribute.Integer & Attribute.Required;
-    lessonProCounter: Attribute.Integer & Attribute.Required;
-    lessonSmartCounter: Attribute.Integer & Attribute.Required;
-    classProCounter: Attribute.Integer & Attribute.Required;
-    classSmartCounter: Attribute.Integer & Attribute.Required;
-    textSmart: Attribute.Text & Attribute.Required;
-    textPro: Attribute.Text & Attribute.Required;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::course.course',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::course.course',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface PluginUploadFile extends Schema.CollectionType {
   collectionName: 'files';
   info: {
@@ -823,6 +753,184 @@ export interface PluginPublisherAction extends Schema.CollectionType {
   };
 }
 
+export interface ApiCourseCourse extends Schema.CollectionType {
+  collectionName: 'courses';
+  info: {
+    singularName: 'course';
+    pluralName: 'courses';
+    displayName: 'Course';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    category: Attribute.String & Attribute.Required;
+    nameCourse: Attribute.String & Attribute.Required;
+    description: Attribute.Text & Attribute.Required;
+    imageCourse: Attribute.Media & Attribute.Required;
+    slug: Attribute.UID & Attribute.Required;
+    listHeader: Attribute.Component<'courses-component.list-header', true>;
+    listTrainingInfo: Attribute.Component<'courses-component.list-training-info'>;
+    descriptionProgram: Attribute.Component<'courses-component.description-program'>;
+    vacanciesProfession: Attribute.Component<'items.item-header'>;
+    whoIsProgram: Attribute.Component<'courses-component.who-is-program', true>;
+    listStudy: Attribute.Component<'courses-component.list-study', true>;
+    listStudyPro: Attribute.Component<'courses-component.list-study-pro', true>;
+    watchProgram: Attribute.String;
+    businessCase: Attribute.String;
+    trainingProgram: Attribute.Component<
+      'courses-component.training-program',
+      true
+    >;
+    listTeachers: Attribute.Component<'courses-component.list-teachers', true>;
+    profession: Attribute.String & Attribute.Required;
+    salary: Attribute.String & Attribute.Required;
+    listProfessionalSkills: Attribute.Component<
+      'courses-component.list-study-pro',
+      true
+    >;
+    listCompany: Attribute.Component<'items.list-image', true>;
+    listProgram: Attribute.Component<'courses-component.list-study-pro', true>;
+    trainingMonths: Attribute.String & Attribute.Required;
+    enrollment: Attribute.String & Attribute.Required;
+    formOfStudy: Attribute.String & Attribute.Required;
+    installmentPlan: Attribute.Integer & Attribute.Required;
+    oneTimePayment: Attribute.Integer & Attribute.Required;
+    priseSmart: Attribute.Integer & Attribute.Required;
+    prisePro: Attribute.Integer & Attribute.Required;
+    lessonProCounter: Attribute.Integer & Attribute.Required;
+    lessonSmartCounter: Attribute.Integer & Attribute.Required;
+    classProCounter: Attribute.Integer & Attribute.Required;
+    classSmartCounter: Attribute.Integer & Attribute.Required;
+    textSmart: Attribute.Text & Attribute.Required;
+    textPro: Attribute.Text & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::course.course',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::course.course',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiFacultyFaculty extends Schema.CollectionType {
+  collectionName: 'faculties';
+  info: {
+    singularName: 'faculty';
+    pluralName: 'faculties';
+    displayName: 'Faculty';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    xui: Attribute.String;
+    teachers: Attribute.Relation<
+      'api::faculty.faculty',
+      'oneToMany',
+      'api::teacher.teacher'
+    >;
+    xuiiii: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::faculty.faculty',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::faculty.faculty',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiStudentCommentStudentComment extends Schema.CollectionType {
+  collectionName: 'student_comments';
+  info: {
+    singularName: 'student-comment';
+    pluralName: 'student-comments';
+    displayName: 'StudentComment';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    title: Attribute.Text;
+    image: Attribute.Media;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::student-comment.student-comment',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::student-comment.student-comment',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiTeacherTeacher extends Schema.CollectionType {
+  collectionName: 'teachers';
+  info: {
+    singularName: 'teacher';
+    pluralName: 'teachers';
+    displayName: 'Teacher';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    title: Attribute.Text;
+    image: Attribute.Media;
+    faculty: Attribute.Relation<
+      'api::teacher.teacher',
+      'manyToOne',
+      'api::faculty.faculty'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::teacher.teacher',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::teacher.teacher',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -833,7 +941,6 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
-      'api::course.course': ApiCourseCourse;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::record-locking.open-entity': PluginRecordLockingOpenEntity;
@@ -842,6 +949,10 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::publisher.action': PluginPublisherAction;
+      'api::course.course': ApiCourseCourse;
+      'api::faculty.faculty': ApiFacultyFaculty;
+      'api::student-comment.student-comment': ApiStudentCommentStudentComment;
+      'api::teacher.teacher': ApiTeacherTeacher;
     }
   }
 }

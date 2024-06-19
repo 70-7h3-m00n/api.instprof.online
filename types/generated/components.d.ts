@@ -14,17 +14,6 @@ export interface CoursesComponentDescriptionProgram extends Schema.Component {
   };
 }
 
-export interface CoursesComponentItemList extends Schema.Component {
-  collectionName: 'components_courses_component_item_lists';
-  info: {
-    displayName: 'itemList';
-  };
-  attributes: {
-    description: Attribute.Text & Attribute.Required;
-    header: Attribute.String & Attribute.Required;
-  };
-}
-
 export interface CoursesComponentListHeader extends Schema.Component {
   collectionName: 'components_list_header_list_headers';
   info: {
@@ -101,18 +90,6 @@ export interface CoursesComponentListTrainingInfo extends Schema.Component {
   };
 }
 
-export interface CoursesComponentListVacancies extends Schema.Component {
-  collectionName: 'components_list_vacancies_list_vacancies';
-  info: {
-    displayName: 'listVacancies';
-    description: '';
-  };
-  attributes: {
-    header: Attribute.String & Attribute.Required;
-    description: Attribute.String & Attribute.Required;
-  };
-}
-
 export interface CoursesComponentList extends Schema.Component {
   collectionName: 'components_courses_component_lists';
   info: {
@@ -142,18 +119,6 @@ export interface CoursesComponentTrainingProgram extends Schema.Component {
         maxLength: 110;
       }>;
     list: Attribute.Component<'courses-component.list', true>;
-  };
-}
-
-export interface CoursesComponentVacanciesProfession extends Schema.Component {
-  collectionName: 'components_vacancies_profession_vacancies_professions';
-  info: {
-    displayName: 'Vacancies';
-    description: '';
-  };
-  attributes: {
-    header: Attribute.String & Attribute.Required;
-    description: Attribute.String & Attribute.Required;
   };
 }
 
@@ -208,16 +173,13 @@ declare module '@strapi/types' {
   export module Shared {
     export interface Components {
       'courses-component.description-program': CoursesComponentDescriptionProgram;
-      'courses-component.item-list': CoursesComponentItemList;
       'courses-component.list-header': CoursesComponentListHeader;
       'courses-component.list-study-pro': CoursesComponentListStudyPro;
       'courses-component.list-study': CoursesComponentListStudy;
       'courses-component.list-teachers': CoursesComponentListTeachers;
       'courses-component.list-training-info': CoursesComponentListTrainingInfo;
-      'courses-component.list-vacancies': CoursesComponentListVacancies;
       'courses-component.list': CoursesComponentList;
       'courses-component.training-program': CoursesComponentTrainingProgram;
-      'courses-component.vacancies-profession': CoursesComponentVacanciesProfession;
       'courses-component.who-is-program': CoursesComponentWhoIsProgram;
       'items.headers': ItemsHeaders;
       'items.item-header': ItemsItemHeader;
