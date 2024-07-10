@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_program_course_course_programs",
+  "info": {
+    "displayName": "CourseProgram",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "numberLessons": {
+      "type": "string",
+      "maxLength": 12
+    },
+    "titleModule": {
+      "type": "string"
+    },
+    "listThemes": {
+      "type": "component",
+      "repeatable": true,
+      "component": "courses-component.list"
+    }
+  }
+}

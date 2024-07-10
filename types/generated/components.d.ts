@@ -126,11 +126,23 @@ export interface CoursesComponentWhoIsProgram extends Schema.Component {
   collectionName: 'components_who_is_program_who_is_programs';
   info: {
     displayName: 'whoIsProgram';
+    description: '';
   };
   attributes: {
-    icon: Attribute.Media & Attribute.Required;
-    title: Attribute.String & Attribute.Required;
+    name: Attribute.String & Attribute.Required;
     description: Attribute.Text & Attribute.Required;
+    image: Attribute.Media & Attribute.Required;
+  };
+}
+
+export interface ItemsFaq extends Schema.Component {
+  collectionName: 'components_items_faqs';
+  info: {
+    displayName: 'Faq';
+  };
+  attributes: {
+    question: Attribute.String & Attribute.Required;
+    answer: Attribute.Text & Attribute.Required;
   };
 }
 
@@ -138,10 +150,11 @@ export interface ItemsHeaders extends Schema.Component {
   collectionName: 'components_items_headers';
   info: {
     displayName: 'Headers';
+    description: '';
   };
   attributes: {
     header: Attribute.String & Attribute.Required;
-    description: Attribute.String & Attribute.Required;
+    description: Attribute.Text & Attribute.Required;
   };
 }
 
@@ -159,6 +172,25 @@ export interface ItemsItemHeader extends Schema.Component {
   };
 }
 
+export interface ItemsLearningProfessions extends Schema.Component {
+  collectionName: 'components_items_learning_professions';
+  info: {
+    displayName: 'LearningProfessions';
+    description: '';
+  };
+  attributes: {
+    header: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 66;
+      }>;
+    description: Attribute.Text &
+      Attribute.SetMinMaxLength<{
+        maxLength: 136;
+      }>;
+    image: Attribute.Media;
+  };
+}
+
 export interface ItemsListImage extends Schema.Component {
   collectionName: 'components_items_list_images';
   info: {
@@ -166,6 +198,66 @@ export interface ItemsListImage extends Schema.Component {
   };
   attributes: {
     image: Attribute.Media & Attribute.Required;
+  };
+}
+
+export interface ItemsStudentComment extends Schema.Component {
+  collectionName: 'components_items_student_comments';
+  info: {
+    displayName: 'StudentComment';
+    description: '';
+  };
+  attributes: {
+    name: Attribute.String & Attribute.Required;
+    description: Attribute.Text & Attribute.Required;
+    image: Attribute.Media & Attribute.Required;
+    data: Attribute.String & Attribute.Required;
+  };
+}
+
+export interface ProgramCourseCourseProgram extends Schema.Component {
+  collectionName: 'components_program_course_course_programs';
+  info: {
+    displayName: 'CourseProgram';
+    description: '';
+  };
+  attributes: {
+    numberLessons: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 12;
+      }>;
+    titleModule: Attribute.String;
+    listThemes: Attribute.Component<'courses-component.list', true>;
+  };
+}
+
+export interface ProgramCoursePaymentTerms extends Schema.Component {
+  collectionName: 'components_program_course_payment_terms';
+  info: {
+    displayName: 'PaymentTerms';
+    description: '';
+  };
+  attributes: {
+    cost: Attribute.String;
+    list: Attribute.Component<'courses-component.list', true> &
+      Attribute.Required;
+    discount: Attribute.String & Attribute.Required;
+  };
+}
+
+export interface ProgramCoursePortfolio extends Schema.Component {
+  collectionName: 'components_program_course_portfolios';
+  info: {
+    displayName: 'Portfolio';
+    description: '';
+  };
+  attributes: {
+    image: Attribute.Media & Attribute.Required;
+    profession: Attribute.String & Attribute.Required;
+    cost: Attribute.String & Attribute.Required;
+    description: Attribute.Text & Attribute.Required;
+    skills: Attribute.Component<'courses-component.list', true> &
+      Attribute.Required;
   };
 }
 
@@ -181,9 +273,15 @@ declare module '@strapi/types' {
       'courses-component.list': CoursesComponentList;
       'courses-component.training-program': CoursesComponentTrainingProgram;
       'courses-component.who-is-program': CoursesComponentWhoIsProgram;
+      'items.faq': ItemsFaq;
       'items.headers': ItemsHeaders;
       'items.item-header': ItemsItemHeader;
+      'items.learning-professions': ItemsLearningProfessions;
       'items.list-image': ItemsListImage;
+      'items.student-comment': ItemsStudentComment;
+      'program-course.course-program': ProgramCourseCourseProgram;
+      'program-course.payment-terms': ProgramCoursePaymentTerms;
+      'program-course.portfolio': ProgramCoursePortfolio;
     }
   }
 }

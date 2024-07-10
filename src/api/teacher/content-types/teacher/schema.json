@@ -15,15 +15,14 @@
     "name": {
       "type": "string"
     },
-    "title": {
+    "description": {
       "type": "text",
       "minLength": 3,
-      "maxLength": 121,
-      "private": true
+      "maxLength": 121
     },
     "image": {
       "type": "media",
-      "multiple": true,
+      "multiple": false,
       "required": false,
       "allowedTypes": [
         "images"

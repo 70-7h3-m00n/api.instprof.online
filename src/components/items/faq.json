@@ -1,16 +1,15 @@
 {
-  "collectionName": "components_items_headers",
+  "collectionName": "components_items_faqs",
   "info": {
-    "displayName": "Headers",
-    "description": ""
+    "displayName": "Faq"
   },
   "options": {},
   "attributes": {
-    "header": {
+    "question": {
       "type": "string",
       "required": true
     },
-    "description": {
+    "answer": {
       "type": "text",
       "required": true
     }

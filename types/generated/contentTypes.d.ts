@@ -482,6 +482,47 @@ export interface PluginUploadFolder extends Schema.CollectionType {
   };
 }
 
+export interface PluginPublisherAction extends Schema.CollectionType {
+  collectionName: 'actions';
+  info: {
+    singularName: 'action';
+    pluralName: 'actions';
+    displayName: 'actions';
+  };
+  options: {
+    draftAndPublish: false;
+    comment: '';
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
+  attributes: {
+    executeAt: Attribute.DateTime;
+    mode: Attribute.String;
+    entityId: Attribute.Integer;
+    entitySlug: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'plugin::publisher.action',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'plugin::publisher.action',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface PluginRecordLockingOpenEntity extends Schema.CollectionType {
   collectionName: 'record-locking_open-entity';
   info: {
@@ -712,47 +753,6 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
-export interface PluginPublisherAction extends Schema.CollectionType {
-  collectionName: 'actions';
-  info: {
-    singularName: 'action';
-    pluralName: 'actions';
-    displayName: 'actions';
-  };
-  options: {
-    draftAndPublish: false;
-    comment: '';
-  };
-  pluginOptions: {
-    'content-manager': {
-      visible: false;
-    };
-    'content-type-builder': {
-      visible: false;
-    };
-  };
-  attributes: {
-    executeAt: Attribute.DateTime;
-    mode: Attribute.String;
-    entityId: Attribute.Integer;
-    entitySlug: Attribute.String;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'plugin::publisher.action',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'plugin::publisher.action',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface ApiCourseCourse extends Schema.CollectionType {
   collectionName: 'courses';
   info: {
@@ -836,13 +836,14 @@ export interface ApiFacultyFaculty extends Schema.CollectionType {
   };
   attributes: {
     title: Attribute.String;
-    image: Attribute.Media;
     program_courses: Attribute.Relation<
       'api::faculty.faculty',
       'oneToMany',
       'api::program-course.program-course'
     >;
+    image: Attribute.Media;
     icon: Attribute.Media;
+    slug: Attribute.UID<'api::faculty.faculty', 'title'> & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -861,6 +862,29 @@ export interface ApiFacultyFaculty extends Schema.CollectionType {
   };
 }
 
+export interface ApiFaqFaq extends Schema.CollectionType {
+  collectionName: 'faqs';
+  info: {
+    singularName: 'faq';
+    pluralName: 'faqs';
+    displayName: 'Faq';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    question: Attribute.Text;
+    answer: Attribute.Text;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::faq.faq', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::faq.faq', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
 export interface ApiProgramCourseProgramCourse extends Schema.CollectionType {
   collectionName: 'program_courses';
   info: {
@@ -874,20 +898,42 @@ export interface ApiProgramCourseProgramCourse extends Schema.CollectionType {
   };
   attributes: {
     title: Attribute.String;
+    hoursTraining: Attribute.String;
+    monthsTraining: Attribute.String;
+    curatorSupport: Attribute.Boolean & Attribute.DefaultTo<true>;
+    remotely: Attribute.Boolean & Attribute.DefaultTo<true>;
     faculty: Attribute.Relation<
       'api::program-course.program-course',
       'manyToOne',
       'api::faculty.faculty'
     >;
-    type_programs: Attribute.Relation<
+    image: Attribute.Media;
+    popularCourses: Attribute.Boolean & Attribute.DefaultTo<false>;
+    description: Attribute.Text;
+    typeProgram: Attribute.Relation<
       'api::program-course.program-course',
-      'manyToMany',
+      'manyToOne',
       'api::type-program.type-program'
     >;
-    hoursTraining: Attribute.String;
-    monthsTraining: Attribute.String;
-    curatorSupport: Attribute.Boolean & Attribute.DefaultTo<true>;
-    remotely: Attribute.Boolean & Attribute.DefaultTo<true>;
+    price: Attribute.Integer;
+    discount: Attribute.Integer;
+    slug: Attribute.UID<'api::program-course.program-course', 'title'> &
+      Attribute.Required;
+    learningProfessions: Attribute.Component<
+      'items.learning-professions',
+      true
+    >;
+    courseFor: Attribute.Component<'items.headers', true>;
+    youWillLearn: Attribute.Component<'courses-component.list', true>;
+    undergoingTraining: Attribute.Component<'courses-component.list', true>;
+    courseProgram: Attribute.Component<'program-course.course-program', true>;
+    descriptionModule: Attribute.Text;
+    mentors: Attribute.Component<'courses-component.who-is-program', true>;
+    portfolio: Attribute.Component<'program-course.portfolio'>;
+    paymentTerms: Attribute.Component<'program-course.payment-terms'> &
+      Attribute.Required;
+    studentComment: Attribute.Component<'items.student-comment', true>;
+    faq: Attribute.Component<'items.faq', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -919,8 +965,9 @@ export interface ApiStudentCommentStudentComment extends Schema.CollectionType {
   };
   attributes: {
     name: Attribute.String;
-    title: Attribute.Text;
+    description: Attribute.Text;
     image: Attribute.Media;
+    data: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -952,8 +999,7 @@ export interface ApiTeacherTeacher extends Schema.CollectionType {
   };
   attributes: {
     name: Attribute.String;
-    title: Attribute.Text &
-      Attribute.Private &
+    description: Attribute.Text &
       Attribute.SetMinMaxLength<{
         minLength: 3;
         maxLength: 121;
@@ -977,6 +1023,36 @@ export interface ApiTeacherTeacher extends Schema.CollectionType {
   };
 }
 
+export interface ApiTrustTrainingTrustTraining extends Schema.CollectionType {
+  collectionName: 'trust_trainings';
+  info: {
+    singularName: 'trust-training';
+    pluralName: 'trust-trainings';
+    displayName: 'TrustTraining';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    image: Attribute.Media & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::trust-training.trust-training',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::trust-training.trust-training',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiTypeProgramTypeProgram extends Schema.CollectionType {
   collectionName: 'type_programs';
   info: {
@@ -990,11 +1066,13 @@ export interface ApiTypeProgramTypeProgram extends Schema.CollectionType {
   };
   attributes: {
     title: Attribute.String;
-    program_courses: Attribute.Relation<
+    programCourses: Attribute.Relation<
       'api::type-program.type-program',
-      'manyToMany',
+      'oneToMany',
       'api::program-course.program-course'
     >;
+    slug: Attribute.UID<'api::type-program.type-program', 'title'> &
+      Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1025,17 +1103,19 @@ declare module '@strapi/types' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
+      'plugin::publisher.action': PluginPublisherAction;
       'plugin::record-locking.open-entity': PluginRecordLockingOpenEntity;
       'plugin::i18n.locale': PluginI18NLocale;
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
-      'plugin::publisher.action': PluginPublisherAction;
       'api::course.course': ApiCourseCourse;
       'api::faculty.faculty': ApiFacultyFaculty;
+      'api::faq.faq': ApiFaqFaq;
       'api::program-course.program-course': ApiProgramCourseProgramCourse;
       'api::student-comment.student-comment': ApiStudentCommentStudentComment;
       'api::teacher.teacher': ApiTeacherTeacher;
+      'api::trust-training.trust-training': ApiTrustTrainingTrustTraining;
       'api::type-program.type-program': ApiTypeProgramTypeProgram;
     }
   }

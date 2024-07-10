@@ -1,7 +1,7 @@
 {
-  "collectionName": "components_who_is_program_who_is_programs",
+  "collectionName": "components_items_student_comments",
   "info": {
-    "displayName": "whoIsProgram",
+    "displayName": "StudentComment",
     "description": ""
   },
   "options": {},
@@ -15,11 +15,15 @@
       "required": true
     },
     "image": {
-      "allowedTypes": [
-        "images"
-      ],
       "type": "media",
       "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "data": {
+      "type": "string",
       "required": true
     }
   }

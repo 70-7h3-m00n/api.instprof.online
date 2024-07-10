@@ -15,11 +15,16 @@
     "title": {
       "type": "string"
     },
-    "program_courses": {
+    "programCourses": {
       "type": "relation",
-      "relation": "manyToMany",
+      "relation": "oneToMany",
       "target": "api::program-course.program-course",
-      "inversedBy": "type_programs"
+      "mappedBy": "typeProgram"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title",
+      "required": true
     }
   }
 }

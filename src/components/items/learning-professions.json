@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_items_learning_professions",
+  "info": {
+    "displayName": "LearningProfessions",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "header": {
+      "type": "string",
+      "maxLength": 66
+    },
+    "description": {
+      "type": "text",
+      "maxLength": 136
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_program_course_payment_terms",
+  "info": {
+    "displayName": "PaymentTerms",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "cost": {
+      "type": "string"
+    },
+    "list": {
+      "type": "component",
+      "repeatable": true,
+      "component": "courses-component.list",
+      "required": true
+    },
+    "discount": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "trust_trainings",
+  "info": {
+    "singularName": "trust-training",
+    "pluralName": "trust-trainings",
+    "displayName": "TrustTraining"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": true,
+      "required": true
+    }
+  }
+}

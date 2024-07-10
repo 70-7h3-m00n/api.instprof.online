@@ -1,0 +1,36 @@
+{
+  "collectionName": "components_program_course_portfolios",
+  "info": {
+    "displayName": "Portfolio",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "profession": {
+      "type": "string",
+      "required": true
+    },
+    "cost": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "skills": {
+      "type": "component",
+      "repeatable": true,
+      "component": "courses-component.list",
+      "required": true
+    }
+  }
+}

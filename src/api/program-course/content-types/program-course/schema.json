@@ -15,18 +15,6 @@
     "title": {
       "type": "string"
     },
-    "faculty": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::faculty.faculty",
-      "inversedBy": "program_courses"
-    },
-    "type_programs": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::type-program.type-program",
-      "mappedBy": "program_courses"
-    },
     "hoursTraining": {
       "type": "string"
     },
@@ -40,6 +28,104 @@
     "remotely": {
       "type": "boolean",
       "default": true
+    },
+    "faculty": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::faculty.faculty",
+      "inversedBy": "program_courses"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "popularCourses": {
+      "type": "boolean",
+      "default": false
+    },
+    "description": {
+      "type": "text"
+    },
+    "typeProgram": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::type-program.type-program",
+      "inversedBy": "programCourses"
+    },
+    "price": {
+      "type": "integer"
+    },
+    "discount": {
+      "type": "integer"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title",
+      "required": true
+    },
+    "learningProfessions": {
+      "type": "component",
+      "repeatable": true,
+      "component": "items.learning-professions"
+    },
+    "courseFor": {
+      "type": "component",
+      "repeatable": true,
+      "component": "items.headers"
+    },
+    "youWillLearn": {
+      "type": "component",
+      "repeatable": true,
+      "component": "courses-component.list"
+    },
+    "undergoingTraining": {
+      "type": "component",
+      "repeatable": true,
+      "component": "courses-component.list"
+    },
+    "courseProgram": {
+      "displayName": "CourseProgram",
+      "type": "component",
+      "repeatable": true,
+      "component": "program-course.course-program"
+    },
+    "descriptionModule": {
+      "type": "text"
+    },
+    "mentors": {
+      "type": "component",
+      "repeatable": true,
+      "component": "courses-component.who-is-program"
+    },
+    "portfolio": {
+      "displayName": "Portfolio",
+      "type": "component",
+      "repeatable": false,
+      "component": "program-course.portfolio"
+    },
+    "paymentTerms": {
+      "displayName": "PaymentTerms",
+      "type": "component",
+      "repeatable": false,
+      "component": "program-course.payment-terms",
+      "required": true
+    },
+    "studentComment": {
+      "displayName": "StudentComment",
+      "type": "component",
+      "repeatable": true,
+      "component": "items.student-comment",
+      "required": false
+    },
+    "faq": {
+      "displayName": "Faq",
+      "type": "component",
+      "repeatable": true,
+      "component": "items.faq"
     }
   }
 }
