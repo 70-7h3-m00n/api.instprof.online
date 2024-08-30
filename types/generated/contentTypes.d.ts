@@ -844,6 +844,11 @@ export interface ApiFacultyFaculty extends Schema.CollectionType {
     image: Attribute.Media;
     icon: Attribute.Media;
     slug: Attribute.UID<'api::faculty.faculty', 'title'> & Attribute.Required;
+    webinars: Attribute.Relation<
+      'api::faculty.faculty',
+      'oneToMany',
+      'api::webinar.webinar'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1091,6 +1096,44 @@ export interface ApiTypeProgramTypeProgram extends Schema.CollectionType {
   };
 }
 
+export interface ApiWebinarWebinar extends Schema.CollectionType {
+  collectionName: 'webinars';
+  info: {
+    singularName: 'webinar';
+    pluralName: 'webinars';
+    displayName: 'Webinar';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    slug: Attribute.UID<'api::webinar.webinar', 'title'> & Attribute.Required;
+    dataPlay: Attribute.DateTime & Attribute.Required;
+    speaker: Attribute.String & Attribute.Required;
+    faculty: Attribute.Relation<
+      'api::webinar.webinar',
+      'manyToOne',
+      'api::faculty.faculty'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::webinar.webinar',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::webinar.webinar',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1117,6 +1160,7 @@ declare module '@strapi/types' {
       'api::teacher.teacher': ApiTeacherTeacher;
       'api::trust-training.trust-training': ApiTrustTrainingTrustTraining;
       'api::type-program.type-program': ApiTypeProgramTypeProgram;
+      'api::webinar.webinar': ApiWebinarWebinar;
     }
   }
 }

@@ -41,6 +41,12 @@
       "type": "uid",
       "targetField": "title",
       "required": true
+    },
+    "webinars": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::webinar.webinar",
+      "mappedBy": "faculty"
     }
   }
 }
